@@ -4,6 +4,7 @@ import Input from "@/components/ui/forms/input";
 import Image from "next/image";
 
 import { useState } from "react";
+import BasicExample from "./faq";
 
 export default function ClassicLayout() {
   const [activeTab, setActiveTab] = useState("Popular");
@@ -67,7 +68,7 @@ export default function ClassicLayout() {
       symbol: "THE",
       price: "$95,788.00",
       change: "+1.73%",
-      icon: "/img/btc.png",
+      icon: "/img/the.png",
       color: "text-green-500",
     },
     {
@@ -76,7 +77,7 @@ export default function ClassicLayout() {
       symbol: "ACT",
       price: "$3,716.26",
       change: "+4.68%",
-      icon: "/img/eth.png",
+      icon: "/img/act.png",
       color: "text-green-500",
     },
     {
@@ -85,7 +86,7 @@ export default function ClassicLayout() {
       symbol: "PNUT",
       price: "$769.91",
       change: "+21.61%",
-      icon: "/img/bnb.png",
+      icon: "/img/pnut.png",
       color: "text-green-500",
     },
     {
@@ -94,7 +95,7 @@ export default function ClassicLayout() {
       symbol: "CETUS",
       price: "$2.55",
       change: "+3.64%",
-      icon: "/img/xrp.png",
+      icon: "/img/cetus.png",
       color: "text-green-500",
     },
     {
@@ -103,7 +104,7 @@ export default function ClassicLayout() {
       symbol: "COW",
       price: "$231.86",
       change: "+5.81%",
-      icon: "/img/sol.png",
+      icon: "/img/cow.png",
       color: "text-green-500",
     },
   ];
@@ -138,8 +139,8 @@ export default function ClassicLayout() {
               <div className="flex  gap-4">
                 <div className="rounded-md border border-gray-500 p-3">
                   <Image
-                    src="/img/apple-icon.png"
-                    alt="apple"
+                    src="/img/google.png"
+                    alt="google"
                     height={20}
                     width={20}
                   />
@@ -313,9 +314,41 @@ export default function ClassicLayout() {
                 <div className="text-gray-100">iOS and Android</div>
               </div>
             </div>
+            <div className="flex mt-6 gap-6">
+              <div className="rounded-md text-center flex flex-col items-center justify-center hover:shadow hover:shadow-gray-500  p-3">
+                <Image
+                  src="/img/apple-icon.png"
+                  alt="apple"
+                  height={30}
+                  width={30}
+                />
+                <div className="text-white mt-2">MacOS</div>
+              </div>
+
+              <div className="rounded-md text-center flex flex-col items-center justify-center hover:shadow hover:shadow-gray-500  p-3">
+                <Image
+                  src="/img/window.png"
+                  alt="apple"
+                  height={30}
+                  width={30}
+                />
+                <div className="text-white mt-2">Window</div>
+              </div>
+              <div className="rounded-md text-center flex flex-col items-center justify-center hover:shadow hover:shadow-gray-500  p-3">
+                <Image
+                  src="/img/linux.png"
+                  alt="apple"
+                  height={30}
+                  width={30}
+                />
+                <div className="text-white mt-2">Linux</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      {/* faq */}
+      <BasicExample />
       <div className="bg-gray-700 text-center py-12">
         <h1 className="text-3xl md:text-4xl font-semibold text-white">
           Start earning today
