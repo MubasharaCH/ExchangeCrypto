@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Link from "next/link";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import Button from "@/components/ui/button";
-
+import { ROUTES } from "../../../utils/routes";
+import Link from "@/components/ui/link";
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -15,7 +15,7 @@ const Header = () => {
   const handleDropdown = (menu: string) => {
     setActiveDropdown(activeDropdown === menu ? null : menu);
   };
-
+  console.log(ROUTES.Login, "routesss:");
   return (
     <header className="bg-gray-900 text-white">
       {/* Top Bar */}
@@ -120,8 +120,16 @@ const Header = () => {
           {/* Search and User Options */}
           <div className="flex items-center space-x-4 md:ml-28">
             <FiSearch className="text-white" size={25} />
-            <Button className="bg-gray-800 hover:bg-gray-700">Login</Button>
-            <Button className="bg-yellow-500 hover:bg-gray-700">Sign Up</Button>
+            <Link href={ROUTES.Login}>
+              <Button className="bg-gray-800 hover:bg-gray-700" size="small">
+                Login
+              </Button>
+            </Link>
+            <Link href={ROUTES.SignUp}>
+              <Button className="bg-yellow-500 hover:bg-gray-700" size="small">
+                Sign Up
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -130,14 +138,25 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="fixed top-0 left-0 z-50 h-full w-3/4 bg-gray-900 shadow-lg">
           {/* Mobile Header */}
-          <div className="flex items-center justify-between border-b border-gray-700 p-4">
-            <h2 className="text-lg font-bold text-yellow-500">Menu</h2>
+          <div className="flex items-center justify-end  p-4">
             <button onClick={toggleMobileMenu}>
               <FaTimes size={25} />
             </button>
           </div>
 
           {/* Mobile Menu Content */}
+
+          {/* Login and Sign-Up Buttons */}
+          <div className="flex space-x-2 px-4 py-2">
+            {/* <Link href="/login"> */}
+            <button className="w-1/2 rounded-md bg-gray-700 py-2 text-center text-white hover:bg-gray-600">
+              <Link href="/login">Login</Link>
+            </button>
+
+            <button className="w-1/2 rounded-md bg-yellow-500 py-2 text-center text-gray-900 hover:bg-yellow-400">
+              Sign Up
+            </button>
+          </div>
           <div className="space-y-4 p-4">
             {/* Search Bar */}
             <div className="relative">
@@ -148,17 +167,6 @@ const Header = () => {
               />
               <FiSearch className="absolute left-3 top-3 text-gray-400" />
             </div>
-
-            {/* Login and Sign-Up Buttons */}
-            <div className="flex space-x-2">
-              <button className="w-1/2 rounded-md bg-gray-700 py-2 text-center text-white hover:bg-gray-600">
-                Login
-              </button>
-              <button className="w-1/2 rounded-md bg-yellow-500 py-2 text-center text-gray-900 hover:bg-yellow-400">
-                Sign Up
-              </button>
-            </div>
-
             {/* Navigation Links */}
             <Link
               href="/buy-crypto"

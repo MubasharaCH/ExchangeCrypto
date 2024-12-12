@@ -3,16 +3,17 @@ import Input from "@/components/ui/forms/input";
 
 import Image from "next/image";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BasicExample from "./faq";
 
 export default function ClassicLayout() {
   const [activeTab, setActiveTab] = useState("Popular");
   const [tab, setTab] = useState("Lite");
+  const [isMobile, setIsMobile] = useState(false);
   const images = {
-    Lite: "/img/lite.png",
-    Desktop: "/img/desktop.png",
-    Pro: "/img/pro.png",
+    Lite: "/img/lite-dark.svg",
+    Desktop: "/img/desktop-dark.png",
+    Pro: "/img/pro-dark.svg",
   };
   const coins = [
     {
@@ -108,6 +109,17 @@ export default function ClassicLayout() {
       color: "text-green-500",
     },
   ];
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Mobile is defined as <768px
+    };
+
+    handleResize(); // Run on mount
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const dataToDisplay = activeTab === "Popular" ? coins : Newcoins;
   return (
     <>
@@ -249,13 +261,13 @@ export default function ClassicLayout() {
           <div>
             {/* Image Tabs */}
             <div className="flex items-center justify-center">
-              {tab == "Desktop" ? (
+              {!isMobile || tab == "Desktop" ? (
                 <Image
                   src={images[tab]} // Dynamically load the image based on the active tab
                   alt={`${activeTab} image`}
-                  width={750} // Set the desired width
-                  height={500} // Set the desired height
-                  className="rounded-md object-cover shadow-lg"
+                  width={tab === "Desktop" ? 750 : 250} // Adjust dimensions based on tab
+                  height={tab === "Desktop" ? 400 : 500} // Set the desired height
+                  className="rounded-md object-cover shadow-lg "
                 />
               ) : (
                 <Image
@@ -268,18 +280,20 @@ export default function ClassicLayout() {
               )}
             </div>
             <div className="mb-4 flex justify-center gap-4 pt-2 text-center">
-              <span
-                onClick={() => setTab("Desktop")}
-                className={`text-md cursor-pointer font-bold ${
-                  tab === "Desktop" ? "text-white" : "text-gray-400"
-                }`}
-              >
-                Desktop
-              </span>
+              {!isMobile && (
+                <span
+                  onClick={() => setTab("Desktop")}
+                  className={`text-md cursor-pointer font-bold ${
+                    tab === "Desktop" ? "text-white" : "text-gray-400"
+                  }`}
+                >
+                  Desktop
+                </span>
+              )}
               <span
                 onClick={() => setTab("Lite")}
                 className={`text-md cursor-pointer font-bold ${
-                  tab === "Lite" ? "text-white" : "text-gray-400"
+                  tab === "Lite" ? "text-white " : "text-gray-400"
                 }`}
               >
                 Lite
@@ -314,7 +328,7 @@ export default function ClassicLayout() {
                 <div className="text-gray-100">iOS and Android</div>
               </div>
             </div>
-            <div className="flex mt-6 gap-6">
+            <div className="flex mt-6 gap-8">
               <div className="rounded-md text-center flex flex-col items-center justify-center hover:shadow hover:shadow-gray-500  p-3">
                 <Image
                   src="/img/apple-icon.png"
@@ -334,7 +348,7 @@ export default function ClassicLayout() {
                 />
                 <div className="text-white mt-2">Window</div>
               </div>
-              <div className="rounded-md text-center flex flex-col items-center justify-center hover:shadow hover:shadow-gray-500  p-3">
+              <div className="rounded-md text-center flex flex-col items-center justify-center hover:shadow hover:shadow-gray-500  px-5 py-3">
                 <Image
                   src="/img/linux.png"
                   alt="apple"
