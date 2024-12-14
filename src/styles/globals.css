@@ -13,7 +13,13 @@
     --foreground: #ededed;
   }
 }
+.input-right-placeholder::placeholder {
+  text-align: right; /* Align placeholder text to the right */
+}
 
+.input-right-placeholder {
+  text-align: right; /* Align input text to the right */
+}
 body {
   color: var(--foreground);
   background: var(--background);
