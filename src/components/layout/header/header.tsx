@@ -152,11 +152,11 @@ const Header = () => {
           <div className="flex space-x-2 px-4 py-2">
             {/* <Link href="/login"> */}
             <button className="w-1/2 rounded-md bg-gray-700 py-2 text-center text-white hover:bg-gray-600">
-              <Link href="/login">Login</Link>
+              <Link href={ROUTES.Login}>Login</Link>
             </button>
 
             <button className="w-1/2 rounded-md bg-yellow-500 py-2 text-center text-gray-900 hover:bg-yellow-400">
-              Sign Up
+              <Link href={ROUTES.SignUp}>Sign Up</Link>
             </button>
           </div>
           <div className="space-y-4 p-4">

@@ -132,8 +132,9 @@ export default function ClassicLayout() {
               <div className="text-3xl md:text-7xl md:text-left text-center font-extrabold text-yellow-500">
                 200000,122
               </div>
-              <div className="text-3xl md:text-7xl  font-extrabold md:mr-4 md:text-left text-center text-white">
-                USERS TRUST US
+              <div className="text-3xl md:text-7xl  font-black  md:text-left text-center text-white">
+                USERS <br />
+                TRUST US
               </div>
             </div>
             <div className="flex flex-col md:flex-row gap-4 pt-8">
