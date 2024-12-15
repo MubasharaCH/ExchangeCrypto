@@ -5,8 +5,8 @@ import logo from "../../../public/img/logo.png";
 
 const Logo = () => {
   return (
-    <Link href="/">
-      <span className={`relative h-10 w-32 overflow-hidden md:w-40 lg:h-18`}>
+    <Link href="/" className={cn("inline-flex")}>
+      <span className="relative h-10 w-32 overflow-hidden md:w-40 lg:h-18">
         <Image
           src={logo}
           alt={""}
