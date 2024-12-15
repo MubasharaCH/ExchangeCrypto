@@ -16,22 +16,23 @@ const BinanceSignUP = () => {
   const [code, setCode] = useState("");
   const router = useRouter(); // Store verification code
 
-  const handleNext = (e) => {
+  const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
     if (phone.trim()) {
       setStep(2);
-      setPhone(e.value);
+      setPhone("");
       setphoneEntered(true);
       // Proceed to verification step
     }
     if (email) {
+      setEmail("");
       setEmailEntered(true);
     }
   };
 
-  const handleVerify = (e) => {
+  const handleVerify = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Verification Code:", code);
+    // console.log("Verification Code:", code);
     router.push(ROUTES.Home);
   };
 
@@ -59,6 +60,7 @@ const BinanceSignUP = () => {
               <form onSubmit={handleNext} className="space-y-6">
                 <div>
                   <Input
+                    name="Email/Phone number"
                     type="text"
                     label="Email/Phone number"
                     id="phone"
@@ -82,7 +84,7 @@ const BinanceSignUP = () => {
                     htmlFor="terms"
                     className="ml-2 text-sm font-medium text-gray-400"
                   >
-                    By creating an account, I agree to Exchange's{" "}
+                    By creating an account, I agree to Exchange&apos;s{" "}
                     <a href="#" className="text-[#fcd535] hover:underline">
                       Terms of Service
                     </a>{" "}
@@ -133,6 +135,7 @@ const BinanceSignUP = () => {
 
                 <div>
                   <Input
+                    name="code "
                     type="text"
                     label="Verification Code"
                     id="code"

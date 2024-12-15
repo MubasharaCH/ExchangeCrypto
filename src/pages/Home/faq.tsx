@@ -1,5 +1,5 @@
 // import CustomAccordion from "./CustomAccordion";
-import { useRouter } from "next/router";
+
 import CustomAccordion from "./Accordion";
 
 function BasicExample() {
@@ -38,12 +38,12 @@ function BasicExample() {
                         content={
                           <>
                             <p className="text-sm text-gray-500">
-                              Binance is the world's leading cryptocurrency
+                              {`Binance is the world's leading cryptocurrency
                               exchange, catering to 235 million registered users
                               in over 180 countries. With low fees and over 350
                               cryptocurrencies to trade, Binance is the
                               preferred exchange to trade Bitcoin, Altcoins, and
-                              other virtual assets.
+                              other virtual assets.`}
                             </p>
                           </>
                         }
@@ -55,12 +55,12 @@ function BasicExample() {
                         content={
                           <>
                             <p className="text-sm text-gray-500">
-                              There are several ways to buy cryptocurrencies on
+                              {` There are several ways to buy cryptocurrencies on
                               Binance. You can use a credit/debit card, cash
                               balance, or Apple Pay/Google Pay to purchase
                               crypto on Binance. Before getting started, please
                               make sure you’ve completed Identity Verification
-                              for your Binance account.
+                              for your Binance account.`}
                             </p>
                           </>
                         }
@@ -70,11 +70,11 @@ function BasicExample() {
                         content={
                           <>
                             <p className="text-sm text-gray-500">
-                              You can trade hundreds of cryptocurrencies on
+                              {`  You can trade hundreds of cryptocurrencies on
                               Binance via the Spot, Margin, Futures, and Options
                               markets. To begin trading, users need to register
                               an account, complete identity verification,
-                              buy/deposit crypto, and start trading.
+                              buy/deposit crypto, and start trading.`}
                             </p>
                           </>
                         }
@@ -84,11 +84,11 @@ function BasicExample() {
                         content={
                           <>
                             <p className="text-sm text-gray-500">
-                              Users can earn rewards on more than 180+
+                              {` Users can earn rewards on more than 180+
                               cryptocurrencies by using one of the products
                               offered on Binance Earn. Our platform offers
                               dozens of digital assets like Bitcoin, Ethereum,
-                              and stablecoins.
+                              and stablecoins.`}
                             </p>
                           </>
                         }

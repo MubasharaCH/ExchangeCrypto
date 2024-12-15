@@ -13,7 +13,17 @@ import {
 import { GiWorld } from "react-icons/gi";
 
 const Footer = () => {
-  const [openSections, setOpenSections] = useState({
+  type SectionKey =
+    | "about"
+    | "products"
+    | "business"
+    | "learn"
+    | "service"
+    | "support"
+    | "community";
+  const [openSections, setOpenSections] = useState<{
+    [key in SectionKey]: boolean;
+  }>({
     about: false,
     products: false,
     business: false,
@@ -24,7 +34,7 @@ const Footer = () => {
   });
 
   // Function to toggle the section
-  const toggleSection = (section) => {
+  const toggleSection = (section: SectionKey) => {
     setOpenSections((prev) => ({
       ...prev,
       [section]: !prev[section],

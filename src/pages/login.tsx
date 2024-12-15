@@ -13,14 +13,14 @@ const BinanceLogin = () => {
   const [password, setPassword] = useState("");
   const router = useRouter(); // Track password value
 
-  const handleNext = (e) => {
+  const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
     if (email.trim()) {
       setEmailEntered(true); // Show password field
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Add logic for final form submission here
     console.log("Email:", email, "Password:", password);
@@ -54,9 +54,9 @@ const BinanceLogin = () => {
               {!emailEntered && (
                 <div>
                   <Input
+                    name="email/phone"
                     type="text"
                     label="Email/Phone number"
-                    id="email"
                     placeholder="Email/Phone (without country code)"
                     className="w-full rounded-md  border-gray-600 bg-gray-900 p-3 text-sm text-white placeholder-gray-500 focus:border-[#fcd535] focus:ring-[#fcd535] focus:outline-none"
                     value={email}
@@ -70,10 +70,10 @@ const BinanceLogin = () => {
               {emailEntered && (
                 <div>
                   <Input
+                    name="password"
                     type="password"
                     label="Password"
-                    id="password"
-                    placeholder="Enter your password"
+                    // placeholder="Enter your password"
                     className="w-full rounded-md border-gray-600 bg-gray-900 p-3 text-sm text-white placeholder-gray-500 focus:border-[#fcd535] focus:ring-[#fcd535] focus:outline-none"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}

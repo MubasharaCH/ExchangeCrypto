@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
-import { BsPlus, BsDash } from 'react-icons/bs';
+import React, { useState } from "react";
+import { BsPlus, BsDash } from "react-icons/bs";
+type CustomAccordionProps = {
+  title: string; // title is a string
+  content: React.ReactNode; // content is a string
+};
 
-const CustomAccordion = ({ title, content }) => {
+const CustomAccordion: React.FC<CustomAccordionProps> = ({
+  title,
+  content,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => {
@@ -13,10 +20,10 @@ const CustomAccordion = ({ title, content }) => {
       <div
         className="panel-heading"
         style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          cursor: 'pointer',
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          cursor: "pointer",
           //   borderBottom: '1px solid #ccc',
         }}
         onClick={toggleAccordion}
