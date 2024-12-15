@@ -399,7 +399,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="mt-12 border-t border-gray-700 pt-6 text-center">
           <p className="text-sm text-gray-500">
-            © 2024 Binance. All rights reserved.
+            © 2024 Aisstock Exchang. All rights reserved.
           </p>
         </div>
       </div>
