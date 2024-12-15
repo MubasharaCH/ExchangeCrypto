@@ -1,37 +1,15 @@
-import { Image } from '@/components/ui/image';
-import cn from 'classnames';
-import Link from '@/components/ui/link';
-import { logoPlaceholder } from '@/lib/placeholders';
-import { getRequest } from '@/components/api';
-import { useEffect, useState } from 'react';
-const Logo: React.FC<React.AnchorHTMLAttributes<{}>> = ({
-  className,
-  h,
-  ...props
-}) => {
-  const [settings, setsetting] = useState([]);
-  const [apiCall, setApiCall] = useState(true);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const local = JSON.parse(window.localStorage.getItem('setting'));
+import { Image } from "@/components/ui/image";
+import cn from "classnames";
+import Link from "@/components/ui/link";
+import logo from "../../../public/img/logo.png";
 
-        setsetting(local);
-        setApiCall(false);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, [apiCall]);
-
+const Logo = ({ className }) => {
   return (
-    <Link href="/" className={cn('inline-flex', className)} {...props}>
-      <span className={`relative h-10 w-32 overflow-hidden md:w-40 lg:h-20`}>
+    <Link href="/" className={cn("inline-flex", className)}>
+      <span className={`relative h-10 w-32 overflow-hidden md:w-40 lg:h-18`}>
         <Image
-          src={settings?.options?.logo?.original ?? logoPlaceholder}
-          alt={settings?.options?.siteTitle || 'OneApp Logo'}
+          src={logo}
+          alt={""}
           fill
           sizes="(max-width: 768px) 100vw"
           loading="eager"

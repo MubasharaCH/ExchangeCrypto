@@ -4,6 +4,7 @@ import { FiSearch } from "react-icons/fi";
 import Button from "@/components/ui/button";
 import { ROUTES } from "../../../utils/routes";
 import Link from "@/components/ui/link";
+import Logo from "@/components/ui/logo";
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -22,7 +23,8 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <div className="text-xl font-bold text-yellow-500">
-          <Link href="/">Exchange</Link>
+          {/* <Link href="/">Exchange</Link> */}
+          <Logo />
         </div>
 
         {/* Search Icon and Hamburger Menu */}

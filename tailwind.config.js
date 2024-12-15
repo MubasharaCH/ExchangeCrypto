@@ -9,6 +9,9 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      exo: ['"Exo 2"', "sans-serif"], // Add the custom font
+    },
     extend: {},
   },
   plugins: [],
